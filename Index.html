@@ -4,11 +4,149 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Weather App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/ee0cca8a18.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
-    <h1>Hello World</h1>
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <form id="search">
+            <div class="input-group mb-3">
+              <input
+                type="search"
+                class="form-control"
+                placeholder="Search City"
+                aria-describedby="button-addon2"
+                id="find-city"
+              />
+              <div class="input-group-append">
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="location-button"
+                >
+                  <i class="fa-solid fa-location-dot"></i>
+                </button>
+                <button
+                  class="btn btn-outline-secondary"
+                  type="submit"
+                  id="search-button"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+          <div class="row">
+            <div class="col-6">
+              <div class="weatherIcon">
+                <i class="fa-solid fa-cloud-showers-heavy"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <div id="date">Sunday 06 March</div>
+              <div id="city">LONDON, UK</div>
+            </div>
+
+            <div class="col-4">
+              <small>Currently</small>
+              <div id="current-Temp">8°C</div>
+            </div>
+
+            <div class="col-2">
+              <div class="range">
+                <div class="maxTemp">9°C</div>
+                <div class="minTemp">1°C</div>
+              </div>
+            </div>
+          </div>
+          <div class="dayCard">
+            <h6>5 day forecast</h6>
+
+            <div class="day">
+              <div class="row">
+                <div class="col">Monday</div>
+                <div class="col">
+                  <div><i class="fa-solid fa-cloud-sun"></i></div>
+                  <div class="tempRange">
+                    <span>8°C </span>
+                    <span>/ 0°C</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="day">
+              <div class="row">
+                <div class="col">Tuesday</div>
+                <div class="col">
+                  <div><i class="fa-solid fa-cloud-sun"></i></div>
+                  <div class="tempRange">
+                    <span>10°C </span>
+                    <span>/ 4°C</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="day">
+              <div class="row">
+                <div class="col">Wednesday</div>
+                <div class="col">
+                  <div><i class="fa-solid fa-cloud-sun"></i></div>
+                  <div class="tempRange">
+                    <span>11°C </span>
+                    <span>/ 4°C</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="day">
+              <div class="row">
+                <div class="col">Thurday</div>
+                <div class="col">
+                  <div><i class="fa-solid fa-cloud-sun"></i></div>
+                  <div class="tempRange">
+                    <span>11°C </span>
+                    <span>/ 9°C</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="day">
+              <div class="row">
+                <div class="col">Friday</div>
+                <div class="col">
+                  <div><i class="fa-solid fa-cloud-showers-heavy"></i></div>
+                  <div class="tempRange">
+                    <span>12°C </span>
+                    <span>/ 5°C</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="src/app.js"></script>
   </body>
 </html>
