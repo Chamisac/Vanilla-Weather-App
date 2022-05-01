@@ -1,3 +1,53 @@
-h1 {
-  color: blue;
+.card {
+  position: relative;
+  margin: 20px auto;
+  text-align: center;
+  max-width: 600px;
+  color: #010149;
+
+  background-image: url("images/weather.svg");
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: 1% 99%;
+}
+
+h6 {
+  color: #f50056;
+  font-size: 18px;
+}
+
+#city {
+  color: #f50056;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+#current-Temp {
+  color: #f50056;
+  font-size: 24px;
+}
+
+.range {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.dayCard {
+  box-shadow: 4px 4px 4px rgba(102, 101, 101, 0.1);
+  border-radius: 4px;
+  margin-top: 20px;
+  background-color: rgba(241, 239, 239, 0.5);
+  padding: 20px 0;
+}
+
+.day {
+  margin: 10px auto;
+}
+
+.weatherIcon {
+  font-size: 64px;
+}
+
+.tempRange {
+  font-size: 12px;
 }
