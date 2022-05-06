@@ -68,10 +68,34 @@ function getLocation(position) {
 function getTemp(response) {
   let currentTemp = document.querySelector("#current-Temp");
   let temp = Math.round(response.data.main.temp);
+
+  let maxTemp = document.querySelector(".maxTemp");
+  let tMax = Math.round(response.data.main.temp_max);
+
+  let minTemp = document.querySelector(".minTemp");
+  let tMin = Math.round(response.data.main.temp_min);
+
+  let humidity = document.querySelector(".humidity");
+  let description = document.querySelector(".description");
+  let windSpeed = document.querySelector(".windSpeed");
+
+  let icon = document.querySelector(".weatherIcon");
+
   currentTemp.innerHTML = `${temp}°C`;
+  maxTemp.innerHTML = `${tMax}°C`;
+  minTemp.innerHTML = `${tMin}°C`;
+  humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
+  windSpeed.innerHTML = `Wind Speed: ${response.data.wind.speed} mph`;
+  description.innerHTML = `${response.data.weather[0].description}`;
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = `${response.data.name.toUpperCase()}`;
+  console.log(response);
+  console.log(response.data.wind.units);
 }
 
 let searchCity = document.querySelector("#search");

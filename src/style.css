@@ -25,11 +25,7 @@ h6 {
 #current-Temp {
   color: #f50056;
   font-size: 24px;
-}
-
-.range {
-  margin-top: 10px;
-  font-size: 16px;
+  vertical-align: bottom;
 }
 
 .dayCard {
@@ -44,10 +40,39 @@ h6 {
   margin: 10px auto;
 }
 
-.weatherIcon {
-  font-size: 64px;
-}
-
 .tempRange {
   font-size: 12px;
+}
+
+.units {
+  font-size: 12px;
+  list-style: none;
+  vertical-align: middle;
+}
+
+ul {
+  padding: 0px;
+}
+
+li {
+  display: inline-block;
+  font-size: 10px;
+}
+
+.currently {
+  margin-top: 78px;
+}
+
+.description {
+  font-size: 10px;
+  text-align: left;
+  margin-top: 106px;
+}
+.humidity {
+  font-size: 10px;
+  text-align: left;
+}
+.windSpeed {
+  font-size: 10px;
+  text-align: left;
 }
