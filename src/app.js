@@ -66,8 +66,9 @@ function getLocation(position) {
 }
 
 function getTemp(response) {
+  TempCelcius = response.data.main.temp;
   let currentTemp = document.querySelector("#current-Temp");
-  let temp = Math.round(response.data.main.temp);
+  let temp = Math.round(TempCelcius);
 
   let maxTemp = document.querySelector(".maxTemp");
   let tMax = Math.round(response.data.main.temp_max);
@@ -97,6 +98,31 @@ function getTemp(response) {
   console.log(response);
   console.log(response.data.wind.units);
 }
+
+function fahrenheitTemp(event) {
+  event.preventDefault();
+  let currentTemp = document.querySelector("#current-Temp");
+  TempFahrenheit = Math.round((TempCelcius * 9) / 5 + 32);
+  currentTemp.innerHTML = `${TempFahrenheit}°C`;
+  celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+}
+
+function celciusTemp(event) {
+  event.preventDefault();
+  let currentTemp = document.querySelector("#current-Temp");
+  currentTemp.innerHTML = `${Math.round(TempCelcius)}°C`;
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+}
+
+let TempCelcius = null;
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", celciusTemp);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", fahrenheitTemp);
 
 let searchCity = document.querySelector("#search");
 searchCity.addEventListener("submit", searchLocation);

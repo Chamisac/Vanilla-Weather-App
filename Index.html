@@ -64,13 +64,15 @@
 
             <div class="col-4 currently">
               Currently
-              <small> <div class="units">°C | °F</div></small>
+              <small> <div class="units"><a href="#" id="celcius-link" class="active">°C</a> | 
+                
+                <a href="#" id="fahrenheit-link" >°F</a></div></small>
               <div>
                 <ul>
                   <li id="current-Temp">8°C</li>
                   <li class="range">
-                    <div class="maxTemp">9°C</div>
-                    <div class="minTemp">1°C</div>
+                    <div class="maxTemp">↑9°C</div>
+                    <div class="minTemp">↓1°C</div>
                   </li>
                 </ul>
               </div>
@@ -153,7 +155,9 @@
         </div>
       </div>
     </div>
-
+    <footer>
+      <span class="repositoryLink"><a href="https://github.com/Chamisac/Vanilla-Weather-App" target="_blank">Open-Source Code </a></Source></span> by Charlene Chamisa
+    </footer>
     <script src="src/app.js"></script>
   </body>
 </html>

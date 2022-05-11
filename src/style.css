@@ -11,6 +11,13 @@
   background-position: 1% 99%;
 }
 
+footer {
+  font-size: 12px;
+  font-family: monospace;
+  text-align: center;
+  color: #010149;
+}
+
 h6 {
   color: #f50056;
   font-size: 18px;
@@ -75,4 +82,14 @@ li {
 .windSpeed {
   font-size: 10px;
   text-align: left;
+}
+
+.active {
+  color: #f50056;
+  font-weight: 500;
+}
+.active:hover {
+  cursor: default;
+  color: #f50056;
+  text-decoration: none;
 }
