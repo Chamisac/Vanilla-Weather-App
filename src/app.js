@@ -86,7 +86,9 @@ function getTemp(response) {
   maxTemp.innerHTML = `${tMax}°C`;
   minTemp.innerHTML = `${tMin}°C`;
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
-  windSpeed.innerHTML = `Wind Speed: ${response.data.wind.speed} mph`;
+  windSpeed.innerHTML = `Wind Speed: ${Math.round(
+    response.data.wind.speed * 2.2369
+  )} mph`;
   description.innerHTML = `${response.data.weather[0].description}`;
   icon.setAttribute(
     "src",
