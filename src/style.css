@@ -93,3 +93,8 @@ li {
   color: #f50056;
   text-decoration: none;
 }
+
+.ForecastWeatherIcon {
+  max-width: 32px;
+  color: #010149;
+}

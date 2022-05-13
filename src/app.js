@@ -105,7 +105,7 @@ function fahrenheitTemp(event) {
   event.preventDefault();
   let currentTemp = document.querySelector("#current-Temp");
   TempFahrenheit = Math.round((TempCelcius * 9) / 5 + 32);
-  currentTemp.innerHTML = `${TempFahrenheit}°C`;
+  currentTemp.innerHTML = `${TempFahrenheit}°F`;
   celciusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
 }
