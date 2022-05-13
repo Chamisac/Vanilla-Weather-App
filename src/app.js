@@ -118,8 +118,36 @@ function celciusTemp(event) {
   fahrenheitLink.classList.remove("active");
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = "";
+  forecastHTML = `<div class="row">`;
+  let forecastDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  forecastDays.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-6">${day}</div>
+                <div class="col-6">
+                  <div>
+                    <img
+                  src="http://openweathermap.org/img/wn/10d@2x.png"
+                  class="ForecastWeatherIcon"
+                />
+                  </div>
+                  <div class="tempRange">
+                    <span>8°C </span>
+                    <span>/ 0°C</span>
+                  </div>
+                </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let TempCelcius = null;
 
+displayForecast();
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", celciusTemp);
 
