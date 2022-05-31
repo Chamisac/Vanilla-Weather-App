@@ -65,6 +65,15 @@ function getLocation(position) {
   axios.get(`${apiUrl}`).then(getTemp);
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+
+  let apiKey = "9c5e603fa63897fff0f7ba0d8872697f";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function getTemp(response) {
   TempCelcius = response.data.main.temp;
   let currentTemp = document.querySelector("#current-Temp");
@@ -98,7 +107,8 @@ function getTemp(response) {
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = `${response.data.name.toUpperCase()}`;
   console.log(response);
-  console.log(response.data.wind.units);
+
+  getForecast(response.data.coord);
 }
 
 function fahrenheitTemp(event) {
@@ -118,7 +128,8 @@ function celciusTemp(event) {
   fahrenheitLink.classList.remove("active");
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = "";
@@ -147,7 +158,8 @@ function displayForecast() {
 
 let TempCelcius = null;
 
-displayForecast();
+//displayForecast(); //should delete(comment it)
+
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", celciusTemp);
 
