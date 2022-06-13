@@ -36,15 +36,15 @@ h6 {
 }
 
 .dayCard {
-  box-shadow: 4px 4px 4px rgba(102, 101, 101, 0.1);
+  box-shadow: 4px 4px 4px rgba(102, 101, 101, 0.2);
   border-radius: 4px;
   margin-top: 20px;
-  background-color: rgba(241, 239, 239, 0.5);
+  background-color: rgba(241, 239, 239, 0.2);
   padding: 20px 0;
 }
 
 .day {
-  margin: 10px auto;
+  margin: 12px auto;
 }
 
 .tempRange {
@@ -67,7 +67,7 @@ li {
 }
 
 .currently {
-  margin-top: 78px;
+  margin-top: 99px;
 }
 
 .description {

@@ -91,8 +91,8 @@ function getTemp(response) {
   let icon = document.querySelector(".weatherIcon");
 
   currentTemp.innerHTML = `${temp}°C`;
-  maxTemp.innerHTML = `${tMax}°C`;
-  minTemp.innerHTML = `${tMin}°C`;
+  maxTemp.innerHTML = `↑${tMax}°C`;
+  minTemp.innerHTML = `↓${tMin}°C`;
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   windSpeed.innerHTML = `Wind Speed: ${Math.round(
     response.data.wind.speed * 2.2369
@@ -108,23 +108,6 @@ function getTemp(response) {
   console.log(response);
 
   getForecast(response.data.coord);
-}
-
-function fahrenheitTemp(event) {
-  event.preventDefault();
-  let currentTemp = document.querySelector("#current-Temp");
-  TempFahrenheit = Math.round((TempCelcius * 9) / 5 + 32);
-  currentTemp.innerHTML = `${TempFahrenheit}°F`;
-  celciusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-}
-
-function celciusTemp(event) {
-  event.preventDefault();
-  let currentTemp = document.querySelector("#current-Temp");
-  currentTemp.innerHTML = `${Math.round(TempCelcius)}°C`;
-  celciusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
 }
 
 function formatDay(timestamp) {
@@ -144,7 +127,6 @@ function formatDay(timestamp) {
 
 function displayForecast(response) {
   let forecast = response.data.daily;
-  console.log(forecast);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -153,7 +135,7 @@ function displayForecast(response) {
     if (index < 6 && index > 0) {
       forecastHTML =
         forecastHTML +
-        `<div class="col-6">${formatDay(forecastday.dt)}</div>
+        `<div class="col-6 day">${formatDay(forecastday.dt)}</div>
                 <div class="col-6">
                   <div>
                     <img
@@ -174,15 +156,7 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-let TempCelcius = null;
-
 //displayForecast(response); //should delete(comment it)
-
-let celciusLink = document.querySelector("#celcius-link");
-celciusLink.addEventListener("click", celciusTemp);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", fahrenheitTemp);
 
 let searchCity = document.querySelector("#search");
 searchCity.addEventListener("submit", searchLocation);
@@ -190,4 +164,5 @@ searchCity.addEventListener("submit", searchLocation);
 let currentLocation = document.querySelector("#location-button");
 currentLocation.addEventListener("click", geoLocation);
 
+window.onload = geoLocation;
 //new code
