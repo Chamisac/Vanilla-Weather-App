@@ -165,4 +165,3 @@ let currentLocation = document.querySelector("#location-button");
 currentLocation.addEventListener("click", geoLocation);
 
 window.onload = geoLocation;
-//new code
