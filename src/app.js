@@ -35,7 +35,6 @@ let currentDate = date.getDate();
 if (currentDate < 10) {
   currentDate = `0${currentDate}`;
 }
-console.log(currentDate);
 
 let dateNow = document.querySelector("#date");
 dateNow.innerHTML = `${day} ${currentDate} ${month}`;
@@ -128,29 +127,48 @@ function celciusTemp(event) {
   fahrenheitLink.classList.remove("active");
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
+  console.log(forecast);
   let forecastElement = document.querySelector("#forecast");
 
-  let forecastHTML = "";
-  forecastHTML = `<div class="row">`;
-  let forecastDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-  forecastDays.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-6">${day}</div>
+  let forecastHTML = `<div class="row">`;
+  //let forecastDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  forecast.forEach(function (forecastday, index) {
+    if (index < 6 && index > 0) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-6">${formatDay(forecastday.dt)}</div>
                 <div class="col-6">
                   <div>
                     <img
-                  src="http://openweathermap.org/img/wn/10d@2x.png"
+                  src="http://openweathermap.org/img/wn/${
+                    forecastday.weather[0].icon
+                  }@2x.png"
                   class="ForecastWeatherIcon"
                 />
                   </div>
                   <div class="tempRange">
-                    <span>8°C </span>
-                    <span>/ 0°C</span>
+                    <span>${Math.round(forecastday.temp.max)}°C </span>
+                    <span>/ ${Math.round(forecastday.temp.min)}°C</span>
                   </div>
                 </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
@@ -158,7 +176,7 @@ function displayForecast(response) {
 
 let TempCelcius = null;
 
-//displayForecast(); //should delete(comment it)
+//displayForecast(response); //should delete(comment it)
 
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", celciusTemp);
