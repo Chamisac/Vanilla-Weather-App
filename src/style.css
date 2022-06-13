@@ -74,6 +74,7 @@ li {
   font-size: 10px;
   text-align: left;
   margin-top: 106px;
+  text-transform: capitalize;
 }
 .humidity {
   font-size: 10px;
